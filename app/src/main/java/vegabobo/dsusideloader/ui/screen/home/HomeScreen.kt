@@ -73,10 +73,15 @@ fun Home(
                 icon = Icons.Outlined.Settings,
                 scrollBehavior = it,
                 onClickIcon = { navigate(Destinations.Preferences) },
+                backgroundColor = Color(0xFF000000),
+                contentColor = Color(0xFF00FF00),
             )
         },
         content = {
-            Box(modifier = Modifier.animateContentSize()) {
+            Box(
+                modifier = Modifier.animateContentSize(),
+                backgroundColor = Color(0xFF00FF00),
+            ) {
                 when (uiState.additionalCard) {
                     AdditionalCardState.NO_DYNAMIC_PARTITIONS ->
                         UnsupportedCard(
@@ -108,6 +113,10 @@ fun Home(
                     AdditionalCardState.NONE -> {}
                 }
             }
+        }
+    )
+}
+
             if (uiState.passedInitialChecks && uiState.additionalCard == AdditionalCardState.NONE) {
                 InstallationCard(
                     uiState = uiState.installationCard,
